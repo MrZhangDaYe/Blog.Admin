@@ -36,7 +36,8 @@ function getGuideSidebar (groupA) {
         children: [
           '',
           'getting-started',
-          'cheat-sheet'
+          'cheat-sheet',
+          'code-generator'
         ]
       }
     ]

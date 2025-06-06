@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Welcome from '../views/Welcome'
 import APIDoc from '../views/APIDoc'
 import NoPage from '../views/404'
+import CodeGenerator from '../views/CodeGenerator.vue';
 
 import Layout from "../views/Layout/Layout";
 const _import = require('@/router/_import_' + process.env.NODE_ENV)//获取组件的方法
@@ -66,6 +67,22 @@ const createRouter = () => new Router({
               NoTabPage: true,
           },
           hidden: true
+        },
+        {
+            path: '/codegenerator',
+            component: Layout, // Assuming it should be wrapped in Layout
+            children: [
+                {
+                    path: '', // Empty path for the child makes it the default for /codegenerator
+                    component: CodeGenerator,
+                    name: 'CodeGenerator',
+                    meta: {
+                        title: 'Code Generator',
+                        iconCls: 'fa fa-cogs', // Font Awesome icon for settings/tools
+                        requireAuth: true // Assuming it needs authentication
+                    }
+                }
+            ]
         },
         {
             path: '*',
